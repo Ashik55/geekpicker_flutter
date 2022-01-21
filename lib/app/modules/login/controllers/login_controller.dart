@@ -25,8 +25,11 @@ class LoginController extends GetxController {
         Get.toNamed(Routes.DASHBOARD);
         showSuccessSnackbar("Logged in successfully");
       }
+      else {
+        showErrorSnackbar("Email & Password wrong");
+      }
     } else {
-      showErrorSnackbar("Email & Password wrong");
+      showMessageSnackbar("Please enter email & password to login");
     }
   }
 
