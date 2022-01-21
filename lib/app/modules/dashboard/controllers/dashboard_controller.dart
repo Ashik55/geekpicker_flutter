@@ -1,20 +1,28 @@
+import 'dart:convert';
+import 'dart:developer';
+
+import 'package:geekpicker_flutter/app/api/repository/api_repository.dart';
+import 'package:geekpicker_flutter/app/data/remote/dashboard_response.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
-  //TODO: Implement DashboardController
+  final APIRepository _apiRepository = Get.find();
+  DashboardResponse? dashboardResponse;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    readLocalJson();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void readLocalJson() async {
+    final result = await _apiRepository.readDashBoardLocal();
+    log(result);
+    if (result != null) {
+      dashboardResponse = DashboardResponse.fromJson(json.decode(result));
+    }
+    update();
   }
 
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+  onTransactionLongPressed() {}
 }

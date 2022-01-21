@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:geekpicker_flutter/app/api/client/api_client.dart';
 import 'package:geekpicker_flutter/app/utils/view_helper.dart';
 import 'package:get/get.dart';
@@ -20,5 +21,11 @@ class APIProvider extends GetxService {
     } on Exception catch (e) {
       showMessageSnackbar(e.toString());
     }
+  }
+
+  //read from from asset file as local json
+  readDashBoardLocal() async {
+    final jsonData = await rootBundle.loadString('assets/json/response.json');
+    return jsonData;
   }
 }

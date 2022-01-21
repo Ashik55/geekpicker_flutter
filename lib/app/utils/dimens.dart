@@ -11,7 +11,7 @@ class Dimens {
 
   //Radius
   static const radiusNone = 4.0;
-  static const radiusMin = 8.0;
+  static const radiusMin = 10.0;
   static const radiusMid = 12.0;
   static const radiusLarge = 18.0;
   static const radiusExtraLarge = 22.0;

@@ -7,4 +7,10 @@ class APIRepository extends GetxService {
   getDashboard() async {
     return await _apiProvider.getDashboard();
   }
+
+
+  readDashBoardLocal() async {
+    return await _apiProvider.readDashBoardLocal();
+  }
+
 }
