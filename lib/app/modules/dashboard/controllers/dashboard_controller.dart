@@ -25,4 +25,6 @@ class DashboardController extends GetxController {
   }
 
   onTransactionLongPressed() {}
+
+  onTabSelected(int index) {}
 }

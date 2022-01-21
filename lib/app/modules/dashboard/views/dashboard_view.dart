@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geekpicker_flutter/app/data/remote/dashboard_response.dart';
 import 'package:geekpicker_flutter/app/modules/componenets/CenterCircularProgressBar.dart';
 import 'package:geekpicker_flutter/app/modules/componenets/custom_textwidget.dart';
+import 'package:geekpicker_flutter/app/modules/componenets/fab_bottom_app_bar.dart';
 import 'package:geekpicker_flutter/app/modules/componenets/network_image_component.dart';
 import 'package:geekpicker_flutter/app/utils/colors.dart';
 import 'package:geekpicker_flutter/app/utils/constants.dart';
@@ -18,7 +19,75 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return GetBuilder<DashboardController>(
         builder: (controller) => Scaffold(
-                body: ListView(
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: SizedBox(
+              width: 70,
+              height: 70,
+              child: FittedBox(
+                child: FloatingActionButton(
+                  backgroundColor: KColors.KTextPrimaryColor,
+                  onPressed: () {},
+                  child: SvgPicture.asset(
+                    'assets/icons/ic_up.svg',
+                    fit: BoxFit.cover,
+                    width: 35,
+                    height: 35,
+                  ),
+                ),
+              ),
+            ),
+            bottomNavigationBar: BottomAppBar(
+              // shape: CircularNotchedRectangle(),
+              color: Colors.white,
+              child: Container(
+                height: 60,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/ic_home.svg',
+                        fit: BoxFit.cover,
+                        width: 35,
+                        height: 25,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/ic_history.svg',
+                        fit: BoxFit.cover,
+                        width: 35,
+                        height: 25,
+                      ),
+                    ),
+                    Container(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/ic_profile.svg',
+                        fit: BoxFit.cover,
+                        width: 35,
+                        height: 25,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/ic_gift.svg',
+                        fit: BoxFit.cover,
+                        width: 35,
+                        height: 25,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            body: ListView(
               shrinkWrap: true,
               physics: BouncingScrollPhysics(),
               children: [
