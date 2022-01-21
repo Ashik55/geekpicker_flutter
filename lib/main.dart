@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geekpicker_flutter/app/dependancy_injector/injector.dart';
-
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'app/api/client/api_client.dart';
+import 'app/api/provider/api_provider.dart';
+import 'app/api/repository/api_repository.dart';
+import 'app/data/local_storage/local_storage.dart';
 import 'app/routes/app_pages.dart';
 import 'app/utils/colors.dart';
 import 'app/utils/utility.dart';
 
-void main() {
+void main() async {
   // Inject dependancies
-  Injector().injectDependancies();
+  await GetStorage.init();
+  Get.put<LocalStorage>(LocalStorage());
+  await Get.putAsync<ApiClient>(() => ApiClient().init());
+  await Get.putAsync<APIProvider>(() async => APIProvider());
+  await Get.putAsync<APIRepository>(() async => APIRepository());
   runApp(MyApp());
 }
 

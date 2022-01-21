@@ -31,7 +31,7 @@ class RegistrationController extends GetxController {
         hideKeyboard();
         print("workkkk");
         _localStorage.setUserEmail(emailController.text);
-        _localStorage.setUserEmail(passwordController.text);
+        _localStorage.setUserPass(passwordController.text);
 
         Get.back();
         showSuccessSnackbar("Account created successfully");
